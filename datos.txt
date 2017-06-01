@@ -1,0 +1,17 @@
+Pattern 1: \d{3}-\d{3}-\d{4} == (\d{3}-){2}\d{4}
+Pattern 2: \d{10}
+Pattern 3: \(\d{3}\)\s\d{3}\s\d{4}
+Pattern 4: (\d{2}\s){4}\d{2}
+
+Pattern X: \(?\d{3}\)?([-\s]?\d){7}
+Matches: "(123) 1-2-3 4-5-6-7"
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque in fringilla elit. Quisque condimentum augue et dignissim auctor. Etiam tempor scelerisque felis quis semper. Integer orci justo, convallis nec nisi quis, auctor porta ipsum. Quisque tempus elit sed odio mattis, non venenatis ipsum iaculis. Donec consequat lacinia urna, aliquet imperdiet ante volutpat lacinia. Nunc vitae urna pretium, gravida dui eu, interdum metus. Proin quis quam purus. Cras risus arcu 551-234-5678, aliquet ac congue ac, imperdiet a nulla. Sed convallis orci vitae nisi eleifend mattis. Nulla tristique dolor sapien, ac condimentum ligula dictum sed. Phasellus nibh massa, porttitor id scelerisque id, mattis 5512345678 sed ligula. Sed sagittis ipsum vitae purus placerat fringilla vitae pharetra neque. Integer tincidunt tellus ut mi laoreet pharetra. Nulla ut ullamcorper nibh. Duis justo massa, pellentesque quis felis sed, scelerisque sollicitudin ex.
+
+Cras pharetra mollis est eget vehicula. Vivamus nunc eros, commodo ut finibus quis, ultrices eget dui. Duis turpis metus, convallis at cursus vel, pretium ac felis. Maecenas malesuada neque accumsan purus condimentum imperdiet et vitae purus. Sed est nisi, porttitor consequat ligula sed, (551) 234 5678 iaculis molestie purus. Morbi nec tincidunt ex. Suspendisse ut scelerisque arcu.
+
+Praesent lectus mauris, condimentum sed sollicitudin vel, venenatis quis urna. Aenean ornare nisl ac rhoncus placerat. Vivamus eget risus at nibh volutpat sodales. Sed eu diam ac justo sollicitudin molestie. Nam pretium fringilla libero, nec tempor nulla. Curabitur nec dui eleifend, eleifend metus a, semper nunc. Cras eget arcu non neque ultrices tempus. Nam magna eros, 55 12 34 56 78 commodo non ligula id, imperdiet viverra arcu. Quisque a lectus nulla. Nam luctus, enim et laoreet bibendum, nibh lorem sodales nisl, eu rutrum metus leo vel diam. Aenean id eleifend erat. Duis fermentum imperdiet lacus, molestie sodales arcu dignissim eu. Aliquam tempus orci id orci facilisis, non pretium libero lobortis.
+
+Maecenas non finibus lorem. Nulla mattis ligula ac elit sollicitudin, quis molestie justo mattis. Praesent gravida interdum nulla, ac vulputate mauris sagittis (badillo.soft@hotmail.com) eu. Nulla non vestibulum quam. Duis a facilisis erat. Aliquam condimentum aliquam finibus. Curabitur turpis dolor, rutrum quis sem id, placerat eleifend augue. Vestibulum luctus nec neque non viverra. Vestibulum vel consectetur turpis. In non tempor ex.
+
+Donec ut rhoncus purus. Maecenas sit amet lectus nunc. Nulla a finibus nisl, vitae rutrum sem. Nulla rhoncus eleifend turpis, ac tempus elit mollis at. Phasellus consectetur mi nec molestie tincidunt. Etiam id aliquet velit. Nulla viverra convallis dolor vel pulvinar. Sed ac tortor at purus luctus semper ut in lacus. Etiam facilisis, sem vel commodo congue, quam neque auctor ante, ac consequat dui dui sit amet neque. Mauris a eros eget ante dignissim finibus. Praesent nibh neque, tempor ullamcorper ante vitae, commodo sodales ex. Etiam dapibus faucibus viverra. Mauris diam nulla, molestie et suscipit ut, posuere eget ligula.
