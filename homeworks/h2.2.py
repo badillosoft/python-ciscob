@@ -3,7 +3,9 @@ import getpass
 import re
 
 def login(email, password):
-    smtpObj = smtplib.SMTP("smtp-mail.outlook.com", 587)
+    smtpObj = smtplib.SMTP_SSL("smtp.gmail.com", 465)
+    # GMAIL: smtp.gmail.com
+    # HOTMAIL: smtp-mail.outlook.com
     smtpObj.ehlo()
     smtpObj.starttls()
     smtpObj.login(email, password)
@@ -18,9 +20,10 @@ def send_email(smtpObj, from_email, to_email, body):
 
 email = raw_input("Give your email: ")
 password = getpass.getpass("Give your password: ")
-message = raw_input("Write the message: ")
 
 smtpObj = login(email, password)
+
+message = raw_input("Write the message: ")
 
 # We are logged :D
 
