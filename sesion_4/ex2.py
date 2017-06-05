@@ -25,6 +25,9 @@ def fillz(number, n):
         s = "0" + s
     return s
 
+def round(number, n):
+    return int(number * 10 ** n) / (10. ** n)
+
 print fillz(10, 12)
 print fillz(823, 6)
 
@@ -57,8 +60,8 @@ for i in range(2000):
         "name": s,
         "brand": b,
         "price": {
-            "unitary": up,
-            "costumer": cp
+            "unitary": round(up, 2),
+            "costumer": round(cp, 2)
         },
         "bar_code": fillz(random.randint(0, 99999999999), 11),
         "quantity": random.randint(0, 20),
@@ -67,7 +70,7 @@ for i in range(2000):
             random.randint(1, 10),
             random.randint(1, 10),
         ],
-        "weight": random.uniform(0.5, 20)
+        "weight": round(random.uniform(0.5, 20), 1)
     }
 
     products.append(product)
