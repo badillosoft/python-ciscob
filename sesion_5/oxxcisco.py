@@ -1,6 +1,8 @@
 # _*_ coding: utf-8 _*_
 
 from pymongo import MongoClient
+import re
+import os
 
 client = MongoClient()
 db = client.oxxcisco
@@ -31,3 +33,32 @@ def print_product(product):
 def show_products():
     for prod in products.find():
         print_product(prod)
+
+def home_menu():
+    # print "\x1bc"
+    os.system("clear") # "cls" on windows
+    print "Welcome to OxxCisco v1.0"
+    print
+    print "Select an option:"
+    print "1. Insert new product"
+    print "2. Show all products"
+    print "-" * 39
+    print "x. Exit"
+    print
+
+    opt = raw_input("> ")
+
+    if opt == "1":
+        insert_menu()
+    elif opt == "2":
+        print "\x1bc"
+        show_products()
+        raw_input("press any key for continue...")
+    elif re.match("^(x|q|quit|exit)$", opt, re.IGNORECASE):
+        print "Bye!"
+        return
+    else:
+        print "! The option is not valid"
+        raw_input("press any key for continue...")
+
+    home_menu() # Recursivity
