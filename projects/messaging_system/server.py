@@ -1,6 +1,7 @@
 # _*_ coding: utf-8 _*_
 
 import json
+import datetime
 from flask import Flask
 from flask import request
 from pymongo import MongoClient
@@ -34,7 +35,18 @@ def send(username):
         result["message"] = "Invalid token >:("
         return json.dumps(result)
 
+    if request.args.get("to"):
+        # TODO: Handle the process peer-to-peer message
+        pass
+
     # TODO: Store the message and notify to other clients
+    db.messages.insert_one({
+        "user": username,
+        "content": message,
+        "seen": [username],
+        "hearts": 0,
+        "datetime": datetime.datetime.now().isoformat() # The current datetime
+    })
 
     result["message"] = "Your message was sent"
     return json.dumps(result)
