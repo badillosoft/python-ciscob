@@ -42,6 +42,24 @@ def send():
 
     print result["message"]
 
+def messages():
+    os.system("clear")
+
+    url = "%s/%s/messages?token=%s" % (BASE_URL, username, token)
+
+    response = urllib2.urlopen(url)
+    content = response.read()
+
+    messages = json.loads(content)
+
+    for message in messages:
+        print "From: %s at %s (%d)" % (message["user"], message["datetime"], message["hearts"])
+        print 
+        print message["content"]
+        print
+        print ", ".join(message["seen"])
+        print "-" * 80
+
 def menu():
     os.system("clear")
 
