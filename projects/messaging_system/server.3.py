@@ -1,6 +1,5 @@
 # _*_ coding: utf-8 _*_
 
-import json
 from flask import Flask
 from flask import request
 
@@ -25,25 +24,13 @@ def login():
     user = request.args.get("user")
     password = request.args.get("password")
     
-    result = {
-        "error": True,
-        "message": "Any message",
-        "token": None
-    }
-
     if users.has_key(user):
         # User exists
         if users[user]["password"] == password:
             # Credentials are valid
-            result["error"] = False
-            result["message"] = "User has been logged"
-            result["token"] = users[user]["token"]
-        else:
-            result["message"] = "The password is incorrect"
-    else:
-        result["message"] = "User doesn't exist"
-
-    return json.dumps(result)
+            return users[user]["token"]
+        return "The user is valid, but the password is incorrect"
+    return "User doesn't exist"
 
 # C:\Python27/Scripts/pip install flask
 
