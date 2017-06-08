@@ -15,9 +15,38 @@ db = client.cisco
 def home():
     return "Hello"
 
+@app.route("/<username>/messages")
+def new_messages(username):
+    token = request.args.get("token")
+    user = db.users.find_one({ "username": username, "token": token })
+
+    result = {
+        "error": True,
+        "message": "Any message"
+    }
+
+    if not user:
+        result["message"] = "Invalid user"
+        return json.dumps(result)
+
+    messages = db.messages.find({
+        "seen": { "$nin": [username] }
+    })
+
+    jmessages = []
+
+    for message in messages:
+        db.messages.update_one({ "_id": message["_id"] }, { "$push": { "seen": username } })
+        print message
+        message["_id"] = str(message["_id"])
+        jmessages.append(message)
+
+    return json.dumps(jmessages)
+
 @app.route("/<username>/send")
 def send(username):
-    user = db.users.find_one({ "username": username })
+    token = request.args.get("token")
+    user = db.users.find_one({ "username": username, "token": token })
 
     result = {
         "error": True,
@@ -29,11 +58,6 @@ def send(username):
         return json.dumps(result)
 
     message = request.args.get("m")
-    token = request.args.get("token")
-
-    if user["token"] != token:
-        result["message"] = "Invalid token >:("
-        return json.dumps(result)
 
     if request.args.get("to"):
         # TODO: Handle the process peer-to-peer message
@@ -48,6 +72,7 @@ def send(username):
         "datetime": datetime.datetime.now().isoformat() # The current datetime
     })
 
+    result["error"] = False
     result["message"] = "Your message was sent"
     return json.dumps(result)
 
@@ -80,6 +105,7 @@ def login():
     if real_user:
         result["error"] = False
         result["message"] = "User has been logged"
+        # Chage the token, update the toke in db
         result["token"] = real_user["token"]
     else:
         result["message"] = "The credentials do not match"
