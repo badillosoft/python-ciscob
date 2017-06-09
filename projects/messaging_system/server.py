@@ -17,7 +17,9 @@ def home():
 
 @app.route("/<username>/messages")
 def new_messages(username):
+    # Get the token in url param
     token = request.args.get("token")
+    # Get the user data storage at mongo with the criteria: username and token
     user = db.users.find_one({ "username": username, "token": token })
 
     result = {
@@ -114,4 +116,4 @@ def login():
 
 # C:\Python27/Scripts/pip install flask
 
-app.run() # run(host="10.10.3.225", port=3000)
+app.run(host="10.10.3.225") # run(host="10.10.3.225", port=3000)
