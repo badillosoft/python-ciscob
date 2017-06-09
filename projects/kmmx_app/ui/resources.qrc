@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="images">
+    <file>logo-kmmx.jpeg</file>
+  </qresource>
+</RCC>
